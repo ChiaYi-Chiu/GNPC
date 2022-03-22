@@ -39,19 +39,18 @@ GNPC=function(Y, Q, initial.dis= c("hamming", "whamming"), initial.gate = c("AND
         Ideal=Ideal.mix}
   
   if (initial.dis=="hamming") {
-    fixed.weight=hamming(Ideal,Y)
+    initial.class = hamming(Ideal,Y)
   } else if (initial.dis=="whamming") {
-    fixed.weight=whamming(Ideal,Y)
+    initial.class = whamming(Ideal,Y)
   }
   
   #============================================
   #  Iteration Starts
   #============================================
-  initial.class=fixed.weight
   d=1
   time=0
   while(d>0.001)
-  { print(time)
+  { #print(time)
     time=time+1
     #===================================================
     # Compute the general weights using the closed form
